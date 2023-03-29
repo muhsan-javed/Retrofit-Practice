@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnClear = findViewById(R.id.btnClear);
         Button btnRunCode = findViewById(R.id.btnRunCode);
 
-        apiController.getInstance();
+//        apiController.getInstance();
 
         btnClear.setOnClickListener(view -> output_textView.setText(""));
 
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        Call<List<Comment>> call = apiController.getApi().getComments(new Integer[]{2,4,6,8}, null,null);
        // apiController.getInstance();
-        Call<List<Comment>> call = apiController.getApi().getComments(parameters);
+        Call<List<Comment>> call = apiController.getInstance().getApi().getComments(parameters);
 //        Call<List<Comment>> call = apiInterface.getComments(parameters);
         call.enqueue(new Callback<List<Comment>>() {
             @Override
