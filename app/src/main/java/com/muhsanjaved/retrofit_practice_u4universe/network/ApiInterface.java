@@ -1,4 +1,4 @@
-package com.muhsanjaved.retrofit_practice_u4universe;
+package com.muhsanjaved.retrofit_practice_u4universe.network;
 
 import com.muhsanjaved.retrofit_practice_u4universe.models.Comment;
 import com.muhsanjaved.retrofit_practice_u4universe.models.Post;
@@ -7,8 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.Field;
@@ -23,15 +21,16 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 
-public interface MyWebService {
+public interface ApiInterface {
 
-    String BASE_URI = "https://jsonplaceholder.typicode.com/";
-    String FEED = "posts";
+   /* String BASE_URI = "https://jsonplaceholder.typicode.com/";
 
     Retrofit RETROFIT = new Retrofit.Builder()
             .baseUrl(BASE_URI)
             .addConverterFactory(GsonConverterFactory.create())
-            .build();
+            .build();*/
+
+    String FEED = "posts";
 
     // get List of Posts
     @GET(FEED)

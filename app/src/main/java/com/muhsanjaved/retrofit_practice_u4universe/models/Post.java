@@ -3,7 +3,7 @@ package com.muhsanjaved.retrofit_practice_u4universe.models;
 public class Post {
 
     private int userId;
-    private int id;
+    private Integer id;
     private String title;
     private String body;
 
@@ -21,7 +21,7 @@ public class Post {
         this.userId = userId;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 

@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.muhsanjaved.retrofit_practice_u4universe.models.Comment;
 import com.muhsanjaved.retrofit_practice_u4universe.models.Post;
+import com.muhsanjaved.retrofit_practice_u4universe.network.ApiInterface;
+import com.muhsanjaved.retrofit_practice_u4universe.network.apiController;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,11 +18,11 @@ import java.util.Map;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.POST;
 
 public class MainActivity extends AppCompatActivity {
     TextView output_textView;
-    MyWebService myWebService;
+    //MyWebService myWebService;
+//    ApiInterface apiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,25 +32,31 @@ public class MainActivity extends AppCompatActivity {
         Button btnClear = findViewById(R.id.btnClear);
         Button btnRunCode = findViewById(R.id.btnRunCode);
 
+        apiController.getInstance();
 
         btnClear.setOnClickListener(view -> output_textView.setText(""));
 
-        myWebService = MyWebService.RETROFIT.create(MyWebService.class);
+
+//        myWebService = MyWebService.RETROFIT.create(MyWebService.class);
+        //myWebService = apiController.getRetrofit().create(MyWebService.class);
+//        apiInterface = apiController.getRetrofit().create(ApiInterface.class);
 
         btnRunCode.setOnClickListener(view -> {
-
-//            getComments();
-           // getPosts();
-            //createPost();
-           // updatePost();
-            deletePost();
+            getComments();
+//            getPosts();
+//            createPost();
+//            updatePost();
+//            deletePost();
         });
 
 
     }
 
     private void deletePost() {
-        Call<Void> call = myWebService.deletePost(5);
+/*
+//        Call<Void> call = myWebService.deletePost(5);
+//        Call<Void> call = apiInterface.deletePost(5);
+        Call<Void> call = apiController.getApi().deletePost(5);
         call.enqueue(new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
@@ -61,13 +69,16 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<Void> call, Throwable t) {
 
             }
-        });
+        });*/
     }
 
     private void updatePost() {
+/*
+//        Call<Post> call = apiController.getInstance().getApi().patchPost(12,"This is post");
+
         Post post = new Post(15,"New Title", null);
 
-        Call<Post> postCall = myWebService.patchPost(4,post);
+        Call<Post> postCall = apiController.getApi().patchPost(4,post);
         postCall.enqueue(new Callback<Post>() {
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {
@@ -81,12 +92,12 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<Post> call, Throwable t) {
 
             }
-        });
+        });*/
 
     }
 
     private void createPost() {
-        Post post = new Post(1, "Post Title", "This is post body");
+      /*  Post post = new Post(1, "Post Title", "This is post body");
 
 //        Call<Post> postCall = myWebService.createPost(post);
 //        Call<Post> postCall = myWebService.createPost(3,"Post Title","This is Post..");
@@ -95,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
         postMap.put("userId","22");
         postMap.put("title","My Post Title");
         postMap.put("body","this is my post ");
-        Call<Post> postCall = myWebService.createPost(postMap);
+//        Call<Post> postCall = myWebService.createPost(postMap);
+        Call<Post> postCall = apiController.getApi().createPost(postMap);
 
         postCall.enqueue(new Callback<Post>() {
             @Override
@@ -110,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<Post> call, Throwable t) {
 
             }
-        });
+        });*/
     }
 
     private void getComments() {
@@ -121,15 +133,22 @@ public class MainActivity extends AppCompatActivity {
         parameters.put("postId","5");
         parameters.put("_sort","id");
         parameters.put("_order","desc");
-//        Call<List<Comment>> call = myWebService.getComments(parameters);
 
+//        Call<List<Comment>> call = myWebService.getComments(parameters);
 //        Call<List<Comment>> call = myWebService.getComments("https://jsonplaceholder.typicode.com/posts/13/comments");
-        Call<List<Comment>> call = myWebService.getComments(new Integer[]{2,4,6,8}, null,null);
+//        Call<List<Comment>> call = myWebService.getComments(new Integer[]{2,4,6,8}, null,null);
+
+//        Call<List<Comment>> call = apiController.getApi().getComments(new Integer[]{2,4,6,8}, null,null);
+       // apiController.getInstance();
+        Call<List<Comment>> call = apiController.getApi().getComments(parameters);
+//        Call<List<Comment>> call = apiInterface.getComments(parameters);
         call.enqueue(new Callback<List<Comment>>() {
             @Override
             public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
                 if (response.isSuccessful())
-                    showComments(response.body());
+                    if (response.body() != null) {
+                        showComments(response.body());
+                    }
             }
 
             @Override
@@ -151,7 +170,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getPosts() {
-        Call<List<Post>> call = myWebService.getPosts();
+        /*
+//        Call<List<Post>> call = myWebService.getPosts();
+        Call<List<Post>> call = apiController.getApi().getPosts();
 
         call.enqueue(new Callback<List<Post>>() {
             @Override
@@ -159,8 +180,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()){
 
-                    for (Post post :response.body()){
-                        showPost(post);
+                    if (response.body() != null) {
+                        for (Post post :response.body()){
+                            showPost(post);
+                        }
                     }
 
                 }
@@ -170,7 +193,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<List<Post>> call, Throwable t) {
 
             }
-        });
+        });*/
     }
 
     private void showPost(Post post) {
