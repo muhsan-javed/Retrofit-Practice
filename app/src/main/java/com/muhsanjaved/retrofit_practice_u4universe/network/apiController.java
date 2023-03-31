@@ -9,7 +9,6 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class apiController {
-
     static String BASE_URI = "https://jsonplaceholder.typicode.com/";
     private static apiController clientObject;
     private static Retrofit retrofit;
@@ -24,7 +23,6 @@ public class apiController {
                 .addInterceptor(loggingInterceptor)
                 .build();
 
-
         Gson gson = new GsonBuilder().serializeNulls().create();
 
 //        Retrofit retrofit = new Retrofit.Builder()
@@ -35,7 +33,6 @@ public class apiController {
                 .build();
 
 //       return retrofit;
-
     }
 
     public static synchronized apiController getInstance(){
@@ -45,15 +42,13 @@ public class apiController {
     }
 
 //   public static ApiInterface getApi(){
-   public Api getApi(){
-        return retrofit.create(Api.class);
+   public ApiInterface getApi(){
+        return retrofit.create(ApiInterface.class);
    }
 
 }
 
-
    /* static String BASE_URI = "https://jsonplaceholder.typicode.com/";
-
 
     public static Retrofit apiController(){
 

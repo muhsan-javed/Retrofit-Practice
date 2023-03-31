@@ -21,7 +21,7 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 
-public interface Api {
+public interface ApiInterface {
 
    /*
    String BASE_URI = "https://jsonplaceholder.typicode.com/";
@@ -30,10 +30,6 @@ public interface Api {
             .baseUrl(BASE_URI)
             .addConverterFactory(GsonConverterFactory.create())
             .build();*/
-
-
-
-
 
     String FEED = "posts";
 
@@ -81,6 +77,4 @@ public interface Api {
 
     @DELETE("posts/{id}")
     Call<Void> deletePost(@Path("id") int id);
-
-
 }
