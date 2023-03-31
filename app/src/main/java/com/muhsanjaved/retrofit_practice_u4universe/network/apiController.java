@@ -45,8 +45,8 @@ public class apiController {
     }
 
 //   public static ApiInterface getApi(){
-   public ApiInterface getApi(){
-        return retrofit.create(ApiInterface.class);
+   public Api getApi(){
+        return retrofit.create(Api.class);
    }
 
 }

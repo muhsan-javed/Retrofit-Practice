@@ -21,7 +21,7 @@ import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
 
-public interface ApiInterface {
+public interface Api {
 
    /*
    String BASE_URI = "https://jsonplaceholder.typicode.com/";

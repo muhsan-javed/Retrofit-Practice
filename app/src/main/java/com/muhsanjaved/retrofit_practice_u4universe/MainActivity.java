@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import com.muhsanjaved.retrofit_practice_u4universe.models.Comment;
 import com.muhsanjaved.retrofit_practice_u4universe.models.Post;
-import com.muhsanjaved.retrofit_practice_u4universe.network.ApiInterface;
 import com.muhsanjaved.retrofit_practice_u4universe.network.apiController;
 
 import java.util.HashMap;
