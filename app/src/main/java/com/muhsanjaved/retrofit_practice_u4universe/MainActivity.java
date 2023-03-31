@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
 //            deletePost();
         });
 
-
     }
 
     private void deletePost() {
@@ -125,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
         });*/
     }
 
+
     private void getComments() {
 //        Call<List<Comment>> call = myWebService.getComments(3,"id","desc");
 //        Call<List<Comment>> call = myWebService.getComments(null,null,null);
@@ -195,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
     }
+
 
     private void showPost(Post post) {
         output_textView.append("\n userId: "+post.getUserId() +"\n");

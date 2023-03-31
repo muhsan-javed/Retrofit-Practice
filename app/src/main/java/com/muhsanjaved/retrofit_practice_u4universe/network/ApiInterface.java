@@ -50,7 +50,7 @@ public interface ApiInterface {
     Call<List<Comment>> getComments(@Query("postId") Integer[] ids,//@Query("postId") Integer postId,//int postId,
                                     @Query("_sort") String sortBy,
                                     @Query("_order") String orderBy
-                                    );
+    );
 
     @GET("comments")
     Call<List<Comment>> getComments(@Url String url);
