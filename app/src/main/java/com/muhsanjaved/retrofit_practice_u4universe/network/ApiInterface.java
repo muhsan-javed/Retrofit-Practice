@@ -23,7 +23,8 @@ import retrofit2.http.Url;
 
 public interface ApiInterface {
 
-   /* String BASE_URI = "https://jsonplaceholder.typicode.com/";
+   /*
+   String BASE_URI = "https://jsonplaceholder.typicode.com/";
 
     Retrofit RETROFIT = new Retrofit.Builder()
             .baseUrl(BASE_URI)

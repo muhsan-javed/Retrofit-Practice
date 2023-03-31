@@ -35,6 +35,7 @@ public class apiController {
                 .build();
 
 //       return retrofit;
+
     }
 
     public static synchronized apiController getInstance(){
@@ -53,6 +54,7 @@ public class apiController {
 
    /* static String BASE_URI = "https://jsonplaceholder.typicode.com/";
 
+
     public static Retrofit apiController(){
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
@@ -61,7 +63,6 @@ public class apiController {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
                 .build();
-
 
         Gson gson = new GsonBuilder().serializeNulls().create();
 
