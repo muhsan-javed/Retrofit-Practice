@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
         btnClear.setOnClickListener(view -> output_textView.setText(""));
 
-
 //        myWebService = MyWebService.RETROFIT.create(MyWebService.class);
         //myWebService = apiController.getRetrofit().create(MyWebService.class);
 //        apiInterface = apiController.getRetrofit().create(ApiInterface.class);
@@ -47,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
 //            updatePost();
 //            deletePost();
         });
-
     }
 
     private void deletePost() {
@@ -194,7 +192,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
     }
-
 
     private void showPost(Post post) {
         output_textView.append("\n userId: "+post.getUserId() +"\n");
